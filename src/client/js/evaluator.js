@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime'
 
 const requestAPI = async (mysite = '') => {
-    const response = await fetch('http://localhost:8081/analyze', {
+    const response = await fetch('http://localhost:8081/test', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -20,7 +20,7 @@ const requestAPI = async (mysite = '') => {
 }
 
 export const updateUI = (myData) => {
-    document.getElementById('polarity').innerHTML = "Polarity: " + myData.polarity;
+    document.getElementById('polarity').innerHTML = "polarity: " + myData.polarity;
     document.getElementById('subjectivity').innerHTML = "Subjectivity: " + myData.subjectivity;
 }
 

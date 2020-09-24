@@ -26,9 +26,16 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
+
+
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile('dist/index.html')
+})
+
+// designates what port the app will listen to for incoming requests
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081!')
 })
 
 app.get("/algo", function (req, res) {
@@ -41,7 +48,19 @@ app.post("/algo", function (req, res) {
     res.json({ url: req.body.url })
 })
 
-app.post('/analyze', (req, res) => {
+// app.post('/analyze', (req, res) => {
+//     console.log(req.body.mysite)
+//     textapi.sentiment({
+//         url: req.body.mysite
+//     }, function (error, response) {
+//         if (error === null) {
+//             console.log(response);
+//             res.send(response);
+//         }
+//     });
+// });
+
+app.post('/test', (req, res) => {
 
     axios.post("https://api.meaningcloud.com/sentiment-2.1", {
 
@@ -50,7 +69,7 @@ app.post('/analyze', (req, res) => {
             params: {
                 key: "471f376ec6a72403cdec30019d9ac32d",
                 lang: "en",
-                txt: req.body.input
+                txt: req.body.mysite
             }
         }).then(function (r) {
 
@@ -59,10 +78,7 @@ app.post('/analyze', (req, res) => {
 
 });
 
-// designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
-})
+
 
 
 
