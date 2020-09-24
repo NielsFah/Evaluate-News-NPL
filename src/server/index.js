@@ -67,9 +67,9 @@ app.post('/test', (req, res) => {
     },
         {
             params: {
-                key: "471f376ec6a72403cdec30019d9ac32d",
+                key: "API_KEY",
                 lang: "en",
-                txt: req.body.mysite
+                txt: req.body.myData
             }
         }).then(function (r) {
 
