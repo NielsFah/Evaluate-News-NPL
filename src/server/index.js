@@ -48,35 +48,35 @@ app.post("/algo", function (req, res) {
     res.json({ url: req.body.url })
 })
 
-// app.post('/analyze', (req, res) => {
-//     console.log(req.body.mysite)
-//     textapi.sentiment({
-//         url: req.body.mysite
-//     }, function (error, response) {
-//         if (error === null) {
-//             console.log(response);
-//             res.send(response);
-//         }
-//     });
-// });
-
 app.post('/test', (req, res) => {
-
-    axios.post("https://api.meaningcloud.com/sentiment-2.1", {
-
-    },
-        {
-            params: {
-                key: "API_KEY",
-                lang: "en",
-                txt: req.body.myData
-            }
-        }).then(function (r) {
-
-            res.json(r.data);
-        }).catch(function (e) { console.log(e) })
-
+    console.log(req.body.mysite)
+    textapi.sentiment({
+        url: req.body.mysite
+    }, function (error, response) {
+        if (error === null) {
+            console.log(response);
+            res.send(response);
+        }
+    });
 });
+
+// app.post('/test', (req, res) => {
+
+//     axios.post("https://api.meaningcloud.com/sentiment-2.1", {
+
+//     },
+//         {
+//             params: {
+//                 key: "471f376ec6a72403cdec30019d9ac32d ",
+//                 lang: "en",
+//                 txt: req.body.mysite
+//             }
+//         }).then(function (r) {
+
+//             res.json(r.data);
+//         }).catch(function (e) { console.log(e) })
+
+// });
 
 
 
